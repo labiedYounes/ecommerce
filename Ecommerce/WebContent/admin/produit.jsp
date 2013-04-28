@@ -30,6 +30,11 @@ Produit
 					  <input type="hidden" name="id" value="<c:out value="${produit.id}"></c:out>">
 					 </form>
 					 </td>
+					 <td><form action="servProduit" method="get"><input type="submit" value="afficher"> 
+					  <input type="hidden" value="4" name="callVar">
+					  <input type="hidden" name="id" value="<c:out value="${produit.id}"></c:out>">
+					 </form>
+					 </td>
 					 </tr>
 					 
 					 </c:forEach>

@@ -25,7 +25,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Structure de la table `categorie`
 --
 
-CREATE TABLE IF NOT EXISTS `categorie` (
+CREATE TABLE `categorie` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `nom` varchar(20) NOT NULL,
   `discription` varchar(20) NOT NULL,
@@ -49,7 +49,7 @@ INSERT INTO `categorie` (`id`, `nom`, `discription`) VALUES
 -- Structure de la table `catproduit`
 --
 
-CREATE TABLE IF NOT EXISTS `catproduit` (
+CREATE TABLE  `catproduit` (
   `idC` int(10) NOT NULL,
   `idP` int(10) NOT NULL,
   PRIMARY KEY (`idC`,`idP`)
@@ -76,7 +76,7 @@ INSERT INTO `catproduit` (`idC`, `idP`) VALUES
 -- Structure de la table `produit`
 --
 
-CREATE TABLE IF NOT EXISTS `produit` (
+CREATE TABLE  `produit` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `nom` varchar(20) NOT NULL,
   `qt` int(10) NOT NULL,
@@ -104,7 +104,7 @@ INSERT INTO `produit` (`id`, `nom`, `qt`, `img`, `discription`) VALUES
 -- Structure de la table `utilisateur`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateur` (
+CREATE TABLE  `utilisateur` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `login` varchar(20) NOT NULL,
   `pwd` varchar(20) NOT NULL,
