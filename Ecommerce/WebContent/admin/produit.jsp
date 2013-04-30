@@ -10,35 +10,23 @@
 </head>
 <body>
 Produit
-<table>
-<tr><td colspan="2" align="center"><form method="get" action="servProduit"><input type="submit" value="ajouter"><input type="hidden" value="1" name="callVar"></form></td> </tr>
-					 
-					 
-					 
-					 <c:forEach items="${requestScope.listProduit}" var="produit">
-					 <tr>
-					 <td><c:out value="${produit.nom}"></c:out></td>
-					<td><c:out value="${produit.qt}"></c:out></td>
+                   <c:choose>
+                     <c:when test="${requestScope.requestedForm == 1}">
+					  <%@ include file="produitFragments/listProduits.jspf" %>
+					 </c:when>
 					
-					 <td><form action="servProduit" method="get"><input type="submit" value="modifier"> 
-					 <input type="hidden" value="1" name="callVar">
-					 <input type="hidden" name="id" value="<c:out value="${produit.id}"></c:out>">
-					 </form>
-					 </td>
-					 <td><form action="servProduit" method="get"><input type="submit" value="supprimer"> 
-					  <input type="hidden" value="3" name="callVar">
-					  <input type="hidden" name="id" value="<c:out value="${produit.id}"></c:out>">
-					 </form>
-					 </td>
-					 <td><form action="servProduit" method="get"><input type="submit" value="afficher"> 
-					  <input type="hidden" value="4" name="callVar">
-					  <input type="hidden" name="id" value="<c:out value="${produit.id}"></c:out>">
-					 </form>
-					 </td>
-					 </tr>
 					 
-					 </c:forEach>
-					 </table>
+					<c:when test="${requestScope.requestedForm == 2}" >
+					  
+                       <%@ include file="produitFragments/afficherProd.jspf" %>
+                      </c:when>
+                      <c:when test="${requestScope.requestedForm == 3}" >  
+                      <%@ include file="produitFragments/manProduit.jspf" %>
+                   
+                      </c:when>
+                       
+					 
+					</c:choose>
 
 </body>
 </html>

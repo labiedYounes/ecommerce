@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<table>
+                      <tr> <td rowspan="4"><img src="imagesProd\<c:out value="${requestScope.prod.img}"></c:out>" alt=""></td></tr>
+					  <td>Nom :</td><td><c:out value="${requestScope.prod.nom}"></c:out></td> </tr>
+					  <tr> <td>Qt :</td><td><c:out value="${requestScope.prod.qt}"></c:out></td>
+					  <tr> <td>Description:</td><td><c:out value="${requestScope.prod.discription}"></c:out></td>
+					  </tr>
+					  <tr> 
+					  <td>
+					  <form action="servProduit" method="get"><input type="submit" value="Précedent"> 
+					  <input type="hidden" value="0" name="callVar">
+					  <input type="hidden" name="id" value="<c:out value="${produit.id}"></c:out>">
+					  </form></td></tr>
+                      </table>
+</body>
+</html>

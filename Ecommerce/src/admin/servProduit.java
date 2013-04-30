@@ -34,16 +34,23 @@ public class servProduit extends main {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    /* afficher les produit requestedForm =1
+     * afficher un produit  requestedForm =2
+     * afficher le formulaire pour modifier ou créer un produit requestedForm =3
+     * 
+     * */
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		setReqAndResp(req, resp);
 		switch (Integer.parseInt(request.getParameter("callVar"))) {
-		case 0:afficher();
+		case 0:request.setAttribute("requestedForm",1);//afficher les  produits
+			afficher();
 			break;
-		case 1:if(request.getParameter("id")==null){
-			     dispatch("manProduit");}
+		case 1:request.setAttribute("requestedForm",3);//afficher les  produits
+			if(request.getParameter("id")==null){
+			     dispatch("produit");}
 		       else{
 			     request.setAttribute("prod",fact.getInstanceOfProdDao().find(Integer.parseInt(request.getParameter("id"))));
-			     dispatch("manProduit");
+			     dispatch("produit");
 		       }
 		
 		break;
@@ -57,9 +64,20 @@ public class servProduit extends main {
 		break;
         case 4:modifier();
     		break;
+        case 5:afficherProd();//afficher un produit
+		break;
 		default:
 			break;
 		}
+		
+		
+	}
+
+	private void afficherProd() {
+		request.setAttribute("requestedForm",2);//afficher un produit
+		request.setAttribute("prod",fact.getInstanceOfProdDao().find(Integer.parseInt(request.getParameter("id"))));
+	    dispatch("produit");
+		
 		
 		
 	}
@@ -74,6 +92,7 @@ public class servProduit extends main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		request.setAttribute("listProduit", listProduit);
 		request.setAttribute("listSize", listProduit.size());
 		dispatch("produit");

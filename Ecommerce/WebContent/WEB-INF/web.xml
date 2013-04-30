@@ -104,11 +104,29 @@
   <servlet>
     <display-name>manProduit</display-name>
     <servlet-name>manProduit</servlet-name>
-    <jsp-file>/admin/manProduit.jsp</jsp-file>
+    <jsp-file>/admin/produitFragments/manProduit.jspf</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>manProduit</servlet-name>
     <url-pattern>/manProduit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>listProduits</display-name>
+    <servlet-name>listProduits</servlet-name>
+    <jsp-file>/admin/produitFragments/listProduits.jspf</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listProduits</servlet-name>
+    <url-pattern>/listProduits</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>afficherProd</display-name>
+    <servlet-name>afficherProd</servlet-name>
+    <jsp-file>/admin/produitFragments/afficherProd.jspf</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>afficherProd</servlet-name>
+    <url-pattern>/afficherProd</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
