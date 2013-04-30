@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="catServ" method="get">
+					         <input type="submit" value="ajouterCat"><input type="hidden" name="callVar" value="1" ></form>
+
+ <c:forEach items="${requestScope.listCat}" var="cat">
+					<table> <tr>
+					 <form method="get" action="servProduit">
+					 <td><c:out value="${cat.nom}"></c:out></td>
+					 <td><c:out value="${cat.discription}"></c:out></td>
+					 <td><input type="submit" value="produit">
+					 <input type="hidden" name="callVar" value='0'>
+					 <input type="hidden" name="idCat" value='<c:out value="${cat.id}"></c:out>'>
+					 </form>
+					 </td>
+					  <td>
+					  <form method="get" action="catServ">
+					  <input type="submit" value="modifier" >
+					  <input type="hidden" name="id" value='<c:out value="${cat.id}"></c:out>'>
+					  <input type="hidden" name="callVar" value='1'>
+					   </form>
+					 </td>
+					 <td>
+					  <form method="get" action="catServ">
+					  <input type="submit" value="supprimer" >
+					  <input type="hidden" name="id" value='<c:out value="${cat.id}"></c:out>'>
+					  <input type="hidden" name="callVar" value='5'>
+					   </form>
+					 </td>
+					 
+					 </tr></table>
+					 
+					 </c:forEach>
+                  
+                       
+					 
+					
+</body>
+</html>

@@ -33,12 +33,16 @@ public class catServ extends main {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    /* afficher les categries requestedForm =1
+     * ajouter ou modifier un categorie requestedForm =2
+     *
+     */
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		setReqAndResp(req, resp);
 		switch (Integer.parseInt(request.getParameter("callVar"))) {
-		case 1:dispatch("addCategorie");break;
+		case 1:fillcat();break;
 		case 2:ajouterCat();break;
-		case 3:fillcat();break;
+		case 3:;break;
 		case 4:modCat();break;
 		case 5: delete();break;
 		default:break;
@@ -61,9 +65,18 @@ public class catServ extends main {
 	}
 
 	private void fillcat() {
-		CategorieDao catDao=f.getInstanceOfCatDao();
-		request.setAttribute("cat", catDao.find(Integer.parseInt(request.getParameter("id"))));
-		dispatch("modCat");
+		/*
+		 * ajouter un categorie catMan=1
+		 * modifier un categorie catMan=2
+		 */
+		request.setAttribute("requestedForm", 2);
+		if(request.getParameter("id")== null){
+			request.setAttribute("catMan", 1);//vers addCategorie.jspf
+			dispatch("admin");
+		}else{
+		request.setAttribute("catMan", 2);//vers modCat.jspf
+		request.setAttribute("cat", f.getInstanceOfCatDao().find(Integer.parseInt(request.getParameter("id"))));
+		dispatch("admin");}
 	}
 
 	

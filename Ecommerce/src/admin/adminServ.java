@@ -39,7 +39,7 @@ public class adminServ extends main {
 		setReqAndResp(req, resp);
 		utilisateur user=(utilisateur) request.getSession().getAttribute("user");
 		if(user !=null){
-			
+			request.setAttribute("requestedForm",1);//listCategories
 		request.setAttribute("user", user);
 		request.setAttribute("val", 56*6);
 		createInfo(user.getType(),request);

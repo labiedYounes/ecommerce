@@ -133,62 +133,23 @@
 					
 					<!-- End Sidebar -->
 					<!-- Begin Content --><!-- End Content -->
-			   <div id="midelBar"> 
-			   	<!-- Client -->
-                    <div id="clientBar"> 
-				<form action="adminClient" method="get">
-					 <table>
-					 <c:forEach items="${requestScope.listClients}" var="client">
-					 <tr>
-					 <td><c:out value="${client.login}"></c:out></td>
-					<td><c:out value="${client.email}"></c:out></td>
-					 <td><input type="submit" value="consulter"></td>
-					  <input type="hidden"  name="idClient" value='<c:out value="${client.id}"></c:out>'>
-					  <input type="hidden"  name="callVar" value="0">
-					 </tr>
-					 </c:forEach>
-					 </table>
-					 
-				 </form>
-					 </div>
-					 <!-- categories -->
-					 <div id="catBar">
-					 	<div id="catMenu">
-					         <form action="catServ" method="get">
-					         <input type="submit" value="ajouterCat"><input type="hidden" name="callVar" value="1" ></form>
-					      </div>
-					 <table>
-					 
-					 <c:forEach items="${requestScope.listCat}" var="cat">
-					 <tr>
-					 <form method="get" action="servProduit">
-					 <td><c:out value="${cat.nom}"></c:out></td>
-					 <td><c:out value="${cat.discription}"></c:out></td>
-					 <td><input type="submit" value="produit">
-					 <input type="hidden" name="callVar" value='0'>
-					 <input type="hidden" name="idCat" value='<c:out value="${cat.id}"></c:out>'>
-					 </form>
-					 </td>
-					  <td>
-					  <form method="get" action="catServ">
-					  <input type="submit" value="modifier" >
-					  <input type="hidden" name="id" value='<c:out value="${cat.id}"></c:out>'>
-					  <input type="hidden" name="callVar" value='3'>
-					   </form>
-					 </td>
-					 <td>
-					  <form method="get" action="catServ">
-					  <input type="submit" value="supprimer" >
-					  <input type="hidden" name="id" value='<c:out value="${cat.id}"></c:out>'>
-					  <input type="hidden" name="callVar" value='5'>
-					   </form>
-					 </td>
-					 
-					 </tr>
-					 
-					 </c:forEach>
-					 </table>
-					 </div>
+			         <div id="midelBar"> 
+			   
+                   
+					
+					
+					 <%@ include file="clientFragments/listClients.jspf" %>
+					  <!-- categories -->
+					  <c:choose><c:when test="${requestScope.requestedForm == 1 }">
+					 <%@ include file="catFragments/listCats.jspf" %>
+					 </c:when>
+					 <c:when test="${requestScope.requestedForm == 2 }">
+					 <%@ include file="catFragments/manCategorie.jspf" %>
+					 </c:when>
+					 </c:choose>
+				
+					  
+					
 					
 					 </div>
 			        <div class="cl">&nbsp;</div>

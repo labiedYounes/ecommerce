@@ -14,16 +14,12 @@ Produit
                      <c:when test="${requestScope.requestedForm == 1}">
 					  <%@ include file="produitFragments/listProduits.jspf" %>
 					 </c:when>
-					
-					 
-					<c:when test="${requestScope.requestedForm == 2}" >
-					  
-                       <%@ include file="produitFragments/afficherProd.jspf" %>
-                      </c:when>
-                      <c:when test="${requestScope.requestedForm == 3}" >  
+					  <c:when test="${requestScope.requestedForm == 2}" >
+                      <%@ include file="produitFragments/afficherProd.jspf" %>
+                     </c:when>
+                     <c:when test="${requestScope.requestedForm == 3}" >  
                       <%@ include file="produitFragments/manProduit.jspf" %>
-                   
-                      </c:when>
+                     </c:when>
                        
 					 
 					</c:choose>
