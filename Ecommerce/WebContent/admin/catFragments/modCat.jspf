@@ -13,7 +13,7 @@
 <input type="text" value="${requestScope.cat.discription}" name="discription">
 <input type="submit" value="modifier" >
 <input type="hidden" name="id" value='<c:out value="${requestScope.cat.id}"></c:out>'>
-<input type="hidden" name="callVar" value='4'>
+<input type="hidden" name="callVar" value='3'>
  </form>
 
 </body>

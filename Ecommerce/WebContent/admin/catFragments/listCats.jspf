@@ -31,13 +31,14 @@
 					  <form method="get" action="catServ">
 					  <input type="submit" value="supprimer" >
 					  <input type="hidden" name="id" value='<c:out value="${cat.id}"></c:out>'>
-					  <input type="hidden" name="callVar" value='5'>
+					  <input type="hidden" name="callVar" value='4'>
 					   </form>
 					 </td>
 					 
 					 </tr></table>
 					 
-					 </c:forEach>
+	</c:forEach>
+	
                   
                        
 					 

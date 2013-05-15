@@ -60,8 +60,11 @@ public class adminServ extends main {
 			
 				Vector<Categorie> listCat=createCategories();
 				String catsHtml=transToHTML(listCat);
+				
 				request.setAttribute("n",""+listCat.size());
-				request.setAttribute("listCat", listCat);
+				Vector<Categorie> sentCatList=paging(listCat);//return les elements qui vont etre afficher par chaque page
+				
+				request.setAttribute("listCat", sentCatList);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -70,6 +73,8 @@ public class adminServ extends main {
 		}
 		
 	}
+
+	
 
 	private <T> String transToHTML(Vector<T >list) {
 		String clients="";

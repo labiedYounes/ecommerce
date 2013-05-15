@@ -40,11 +40,10 @@ public class catServ extends main {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		setReqAndResp(req, resp);
 		switch (Integer.parseInt(request.getParameter("callVar"))) {
-		case 1:fillcat();break;
+		case 1:fillcatOrMod();break;
 		case 2:ajouterCat();break;
-		case 3:;break;
-		case 4:modCat();break;
-		case 5: delete();break;
+		case 3:modCat();break;
+		case 4:delete();break;
 		default:break;
 		}
 		
@@ -64,7 +63,7 @@ public class catServ extends main {
 		
 	}
 
-	private void fillcat() {
+	private void fillcatOrMod() {
 		/*
 		 * ajouter un categorie catMan=1
 		 * modifier un categorie catMan=2
