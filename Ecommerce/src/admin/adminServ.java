@@ -62,9 +62,9 @@ public class adminServ extends main {
 				String catsHtml=transToHTML(listCat);
 				
 				request.setAttribute("n",""+listCat.size());
-				Vector<Categorie> sentCatList=paging(listCat);//return les elements qui vont etre afficher par chaque page
+				//Vector<Categorie> sentCatList=paging(listCat);//return les elements qui vont etre afficher par chaque page
 				
-				request.setAttribute("listCat", sentCatList);
+				request.setAttribute("listCat", listCat);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

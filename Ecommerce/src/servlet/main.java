@@ -19,6 +19,7 @@ public class main extends HttpServlet {
 	protected HttpServletRequest request;
 	protected HttpServletResponse response;
 	protected factory fact=new factory();
+	protected paginator paginateur=new paginator(4);
 	protected int displayedElms=10;
 	public void setReqAndResp(HttpServletRequest req,HttpServletResponse resp){
 		request=req;

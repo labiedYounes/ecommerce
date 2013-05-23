@@ -1,5 +1,7 @@
 package project.data;
 
+import java.lang.reflect.Method;
+
 public class produit {
  private String nom ,img,discription ;	
  private int qt,id;
@@ -33,6 +35,12 @@ public int getQt() {
 public void setQt(int qt) {
 	this.qt = qt;
 }
- 
+public static void  main(String[] Args) {
+	Class<utilisateur> utClass=utilisateur.class;
+	Method methods[]=utClass.getDeclaredMethods();
+	for(int i=0;i<methods.length;i++){
+		System.out.println(methods[i].getName());
+	}
+}
 
 }

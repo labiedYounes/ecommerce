@@ -15,6 +15,9 @@ public class factory{
 	public produitDao getInstanceOfProdDao(){
 		return  new produitDao(con.getCon());
 	}
+	public utilisateurDao getInstanceOfUserDao() {
+        return new utilisateurDao(con.getCon()) ;
+	}
 
 	private void creatCon() {
 		try {
@@ -28,8 +31,6 @@ public class factory{
 		}
 		
 	}
-	public utilisateurDao getInstanceOfUserDao() {
-        return new utilisateurDao(con.getCon()) ;
-	}
+	
 
 }

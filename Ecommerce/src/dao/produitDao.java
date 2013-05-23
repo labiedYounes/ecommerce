@@ -16,7 +16,7 @@ import project.data.utilisateur;
 
 public class produitDao extends dao<produit> {
 
-	private PreparedStatement stmt;
+	
 
 	public produitDao(Connection conn) {
 		super(conn);

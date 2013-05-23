@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Vector;
 
@@ -12,7 +13,7 @@ import project.data.utilisateur;
 
 public abstract class dao<T> {
 	  protected Connection connect = null;
-	   
+	  protected PreparedStatement stmt;
 	  public dao(Connection conn){
 	    this.connect = conn;
 	  }
