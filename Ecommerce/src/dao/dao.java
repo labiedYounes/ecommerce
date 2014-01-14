@@ -13,7 +13,8 @@ import project.data.utilisateur;
 
 public abstract class dao<T> {
 	  protected Connection connect = null;
-	  protected PreparedStatement stmt;
+	  protected PreparedStatement stmt;//testing on git
+
 	  public dao(Connection conn){
 	    this.connect = conn;
 	  }
